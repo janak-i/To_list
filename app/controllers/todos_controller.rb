@@ -32,7 +32,6 @@ class TodosController < ApplicationController
 
 
     def update
-    	byebug
     	@todo = Todo.find(params[:id])
     	if @todo.update(todo_params)
     		render json: @todo, statuu: 201
@@ -41,8 +40,7 @@ class TodosController < ApplicationController
     	end
     end
 
-    def destroy	
-    	byebug
+    def destroy
     	@todo = Todo.find(params[:id])
     	if @todo.destroy
         	render json: {messages: "successfull destroye"}
@@ -50,7 +48,7 @@ class TodosController < ApplicationController
     end
     private
     def todo_params
-    	params.require(:todo).permit(:title)
+    	params.require(:todo).permit(:title, :user_id)
     end
 end
 

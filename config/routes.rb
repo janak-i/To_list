@@ -5,7 +5,10 @@ Rails.application.routes.draw do
   # root "articles#index"
   post "/login", to: "sessions#login"
   post "/signup", to: "sessions#signup"
-  resources :todos
+    resources :users do
+    resources :todos
+  end
+
 
 end
 
